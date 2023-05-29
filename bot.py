@@ -20,6 +20,7 @@ class Bot(commands.Bot):
         # For now we just want to ignore them...
         if message.echo:
             return
+            # this comment is just so you can see how changes a displayed in a pull request
         
                 # Print the contents of our message to console...
         print(f"{message.author.name}: {message.content}") 
