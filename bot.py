@@ -7,7 +7,7 @@ class Bot(commands.Bot):
         # Initialise our Bot with our access token, prefix and a list of channels to join on boot...
         # prefix can be a callable, which returns a list of strings or a string...
         # initial_channels can also be a callable which returns a list of strings...
-        super().__init__(token=os.environ['TWITCH_TOKEN'], prefix='!', initial_channels=['Trizze'])
+        super().__init__(token=os.environ['TWITCH_TOKEN'], prefix='!', initial_channels=[os.environ['TWITCH_CHANNEL']])
 
     async def event_ready(self):
         # Notify us when everything is ready!
@@ -37,9 +37,6 @@ class Bot(commands.Bot):
         # Send a hello back!
         # Sending a reply back to the channel is easy... Below is an example.
         await ctx.send(f'Hello {ctx.author.name}!')
-    @commands.command()
-    async def whoistrizze(self, ctx: commands.Context):
-        await ctx.send(f'Trizze is a streamer guy')
 
 
 bot = Bot()
